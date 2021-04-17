@@ -1,6 +1,6 @@
 package com.compasso.projectms.api.resource;
 
-
+import com.compasso.projectms.api.dto.ProductDto;
 import com.compasso.projectms.domain.entity.Product;
 import com.compasso.projectms.domain.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,25 +29,26 @@ public class ProductResource {
     }
 
     @PostMapping
-    public ResponseEntity<Product> insert(@Valid @RequestBody Product product) {
-        product = productService.insert(product);
+    public ResponseEntity<ProductDto> insert(@Valid @RequestBody ProductDto dto) {
+        dto = productService.insert(dto);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
-                .buildAndExpand(product.getId())
+                .buildAndExpand(dto.getId())
                 .toUri();
-        return ResponseEntity.created(uri).body(product);
+        return ResponseEntity.created(uri).body(dto);
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Product> update(@PathVariable String id, @Valid @RequestBody Product product) {
-        product = productService.update(id, product);
-        return ResponseEntity.ok().body(product);
+    public ResponseEntity<ProductDto> update(@PathVariable String id, @Valid @RequestBody ProductDto dto) {
+        dto = productService.update(id, dto);
+        return ResponseEntity.ok().body(dto);
     }
 
     @GetMapping(value ="/{id}")
-    public Product findById(@PathVariable String id) {
-        return productService.consult(id);
+    public ResponseEntity<ProductDto> findById(@PathVariable String id) {
+        ProductDto dto = productService.findById(id);
+        return ResponseEntity.ok().body(dto);
     }
 
     @GetMapping
@@ -57,20 +58,22 @@ public class ProductResource {
     }
 
     @GetMapping(value = "/search")
-    public ResponseEntity<List<Product>> filter(
+    public ResponseEntity<List<ProductDto>> filter(
             @RequestParam(value = "q", required = false) String nameOrDescription,
             @RequestParam(value = "min_price", required = false) BigDecimal minPrice,
             @RequestParam(value = "max_price", required = false) BigDecimal maxPrice) {
 
-        final List<Product> products = this.productService.findAllBySpecification(
+        List<Product> products = this.productService.findAllSpecification(
                 where(productWithNameOrDescription(nameOrDescription)).
                 and(productMinMax(minPrice, maxPrice)));
 
-        return ResponseEntity.ok(products);
+        List<ProductDto> productDto = productService.convertEntityToDto(products);
+
+        return ResponseEntity.ok(productDto);
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Product> delete(@PathVariable String id) {
+    public ResponseEntity<ProductDto> delete(@PathVariable String id) {
         productService.delete(id);
         return ResponseEntity.ok().build();
     }

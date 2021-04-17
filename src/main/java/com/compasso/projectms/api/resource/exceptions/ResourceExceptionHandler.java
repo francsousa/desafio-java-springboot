@@ -30,7 +30,7 @@ public class ResourceExceptionHandler {
         HttpStatus status = HttpStatus.NOT_FOUND;
         StandardError err = new StandardError();
         err.setStatusCode(status.value());
-        err.setMessage("Product not found");
+        err.setMessage("Resource not found");
         return ResponseEntity.status(status).body(err);
     }
 }
