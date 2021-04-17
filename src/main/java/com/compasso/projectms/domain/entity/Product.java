@@ -1,4 +1,4 @@
-package com.compasso.projectms.entity;
+package com.compasso.projectms.domain.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

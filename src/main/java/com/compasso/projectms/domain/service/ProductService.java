@@ -1,8 +1,8 @@
-package com.compasso.projectms.service;
+package com.compasso.projectms.domain.service;
 
-import com.compasso.projectms.entity.Product;
-import com.compasso.projectms.repository.ProductRepository;
-import com.compasso.projectms.service.exceptions.ProductNotFoundException;
+import com.compasso.projectms.domain.entity.Product;
+import com.compasso.projectms.domain.repository.ProductRepository;
+import com.compasso.projectms.domain.service.exceptions.ProductNotFoundException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;

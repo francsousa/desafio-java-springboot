@@ -1,6 +1,6 @@
-package com.compasso.projectms.controller;
+package com.compasso.projectms.api.controller;
 
-import com.compasso.projectms.service.ProductService;
+import com.compasso.projectms.domain.service.ProductService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

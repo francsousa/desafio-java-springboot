@@ -1,6 +1,6 @@
-package com.compasso.projectms.controller.exceptions;
+package com.compasso.projectms.api.resource.exceptions;
 
-import com.compasso.projectms.service.exceptions.ProductNotFoundException;
+import com.compasso.projectms.domain.service.exceptions.ProductNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-public class ControllerExceptionHandler {
+public class ResourceExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<StandardError> handleValidationExceptions(MethodArgumentNotValidException ex) {

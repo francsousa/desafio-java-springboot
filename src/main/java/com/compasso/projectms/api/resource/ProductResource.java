@@ -1,7 +1,8 @@
-package com.compasso.projectms.controller;
+package com.compasso.projectms.api.resource;
 
-import com.compasso.projectms.entity.Product;
-import com.compasso.projectms.service.ProductService;
+
+import com.compasso.projectms.domain.entity.Product;
+import com.compasso.projectms.domain.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,18 +13,18 @@ import java.math.BigDecimal;
 import java.net.URI;
 import java.util.List;
 
-import static com.compasso.projectms.repository.spec.ProductSpec.productMinMax;
-import static com.compasso.projectms.repository.spec.ProductSpec.productWithNameOrDescription;
+import static com.compasso.projectms.domain.repository.spec.ProductSpec.productMinMax;
+import static com.compasso.projectms.domain.repository.spec.ProductSpec.productWithNameOrDescription;
 import static org.springframework.data.jpa.domain.Specification.where;
 
 @RestController
 @RequestMapping(value = "/products")
-public class ProductController {
+public class ProductResource {
 
     private final ProductService productService;
 
     @Autowired
-    public ProductController(ProductService productService) {
+    public ProductResource(ProductService productService) {
         this.productService = productService;
     }
 

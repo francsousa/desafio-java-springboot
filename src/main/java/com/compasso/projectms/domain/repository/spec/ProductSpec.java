@@ -1,6 +1,6 @@
-package com.compasso.projectms.repository.spec;
+package com.compasso.projectms.domain.repository.spec;
 
-import com.compasso.projectms.entity.Product;
+import com.compasso.projectms.domain.entity.Product;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.Path;

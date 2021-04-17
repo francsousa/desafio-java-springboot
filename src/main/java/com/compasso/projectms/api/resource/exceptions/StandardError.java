@@ -1,4 +1,4 @@
-package com.compasso.projectms.controller.exceptions;
+package com.compasso.projectms.api.resource.exceptions;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

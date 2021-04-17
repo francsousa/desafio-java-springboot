@@ -1,4 +1,4 @@
-package com.compasso.projectms.service.exceptions;
+package com.compasso.projectms.domain.service.exceptions;
 
 public class ProductNotFoundException extends RuntimeException {
 

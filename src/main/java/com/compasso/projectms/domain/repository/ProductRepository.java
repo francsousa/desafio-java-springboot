@@ -1,6 +1,6 @@
-package com.compasso.projectms.repository;
+package com.compasso.projectms.domain.repository;
 
-import com.compasso.projectms.entity.Product;
+import com.compasso.projectms.domain.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
