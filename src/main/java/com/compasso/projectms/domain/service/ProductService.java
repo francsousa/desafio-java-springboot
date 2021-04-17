@@ -68,7 +68,7 @@ public class ProductService {
     }
 
     @Transactional(readOnly = true)
-    public List<Product> findAllSpecification(Specification<Product> spec) {
+    public List<Product> findAllSpec(Specification<Product> spec) {
         return productRepository.findAll(spec);
     }
 

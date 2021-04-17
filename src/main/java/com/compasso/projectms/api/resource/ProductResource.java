@@ -63,7 +63,7 @@ public class ProductResource {
             @RequestParam(value = "min_price", required = false) BigDecimal minPrice,
             @RequestParam(value = "max_price", required = false) BigDecimal maxPrice) {
 
-        List<Product> products = this.productService.findAllSpecification(
+        List<Product> products = this.productService.findAllSpec(
                 where(productWithNameOrDescription(nameOrDescription)).
                 and(productMinMax(minPrice, maxPrice)));
 
